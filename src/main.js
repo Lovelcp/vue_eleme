@@ -19,7 +19,7 @@ const routes = [
 
 const router = new VueRouter({routes})
 
-router.push('/goods')
+router.push('/goods') // 默认显示商品页
 
 /* eslint-disable no-new */
 new Vue({
