@@ -3,28 +3,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
-import goods from './components/goods/goods.vue'
-
-Vue.use(VueRouter)
+import goods from '@/components/goods/goods.vue'
+import ratings from '@/components/ratings/ratings.vue'
+import seller from '@/components/seller/seller.vue'
 
 Vue.config.productionTip = false
 
+Vue.use(VueRouter)
+
+const routes = [
+  {path: '/goods', component: goods},
+  {path: '/ratings', component: ratings},
+  {path: '/seller', component: seller}
+]
+
+const router = new VueRouter({routes})
+
+router.push('/goods')
+
 /* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   template: '<App/>',
-//   components: {App}
-// })
-
-let app = Vue.extend(App)
-
-let router = new VueRouter()
-
-router.map({
-  '/goods': {
-    component: goods
-  }
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: {App}
 })
-
-router.start(app, '#app')
 
