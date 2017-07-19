@@ -17,7 +17,7 @@ const routes = [
   {path: '/seller', component: seller}
 ]
 
-const router = new VueRouter({routes})
+const router = new VueRouter({routes, linkActiveClass: 'active'})
 
 router.push('/goods') // 默认显示商品页
 
