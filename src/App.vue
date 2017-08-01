@@ -19,7 +19,23 @@
 <script>
   import header from '@/components/header/header.vue'
 
+  const ERR_OK = 0
+
   export default {
+    data() {
+      return {
+        seller: {}
+      }
+    },
+    created() {
+      this.$http.get('/api/seller').then((response) => {
+        response = response.body
+        if (response.errno === ERR_OK) {
+          this.seller = response.data
+          console.log(this.seller)
+        }
+      })
+    },
     components: {
       'v-header': header
     }
@@ -42,7 +58,7 @@
         & > a
           display block // 使得a标签撑满
           font-size 14px
-          color rgb(77,85,93)
+          color rgb(77, 85, 93)
           &.active
-            color: rgb(240,20,20)
+            color: rgb(240, 20, 20)
 </style>
