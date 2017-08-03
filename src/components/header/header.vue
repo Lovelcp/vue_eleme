@@ -22,7 +22,10 @@
         <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
-    <div class="bulletin-wrapper"></div>
+    <div class="bulletin-wrapper">
+      <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
   </div>
 </template>
 
@@ -99,8 +102,7 @@
             line-height: 12px
             font-size: 10px
       .support-count
-      // 实现绝对定位，父元素定义relative，实现该父元素内部的绝对定位
-        position: absolute
+        position: absolute // 实现绝对定位，父元素定义relative，实现该父元素内部的绝对定位
         right: 12px
         bottom: 14px
         padding: 0 8px
@@ -116,4 +118,31 @@
           margin-left: 2px
           line-height: 24px
           font-size 10px
+    .bulletin-wrapper
+      height 28px
+      line-height: 28px // line-height和height同样大小，保证垂直居中
+      padding 0 22px 0 12px
+      position relative
+      white-space: nowrap // 超出显示...
+      overflow: hidden
+      text-overflow: ellipsis
+      background rgba(7, 17, 27, 0.2)
+      .bulletin-title
+        display: inline-block
+        vertical-align top
+        margin-top 7px
+        width 22px
+        height 12px
+        bg-image('bulletin')
+        background-size 22px 12px
+        background-repeat no-repeat
+      .bulletin-text
+        vertical-align top
+        margin: 0 4px
+        font-size: 10px
+      .icon-keyboard_arrow_right
+        position: absolute
+        font-size: 10px
+        right 12px
+        top 8px
 </style>
